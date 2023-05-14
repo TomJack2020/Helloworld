@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/dist/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+
+
+
+<div class="container">
+    <h1 style="font-weight: bold;color: blue">用户信息</h1>
+    <table class="table table-bordered">
+        <thead>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>入职时间</th>
+        </thead>
+
+        <tbody>
+        {% for obj in data_list %}
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.name }}</td>
+                <td>{{ obj.age }}</td>
+                <td>{{ obj.gender }}</td>
+                <td>{{ obj.create_time }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>修改信息</h2>
+
+<form method="POST" action="/edit/people/?id={{ people_object.id }}">
+    {% csrf_token %}
+    <input type="text" placeholder="姓名" name="name" value="{{ people_object.name }}">
+    <input type="text" placeholder="性别" name="gender" value="{{ people_object.gender }}">
+    <input type="text" placeholder="城市" name="city" value="{{ people_object.city }}">
+    <input type="text" placeholder="年龄" name="age" value="{{ people_object.age }}">
+    <input type="submit" value="提交">
+</form>
+
+
+</body>
+</html>
