@@ -3,10 +3,19 @@
 {% block content %}
     <div class="container">
         <div style="margin-bottom: 10px">
-            <a class="btn btn-success" href="/app01/depart/add/">
+            <a class="btn btn-success" href="/app01/user/add/">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 新建用户
             </a>
+
+
+            <a class="btn btn-success" href="/app01/user/modelform/add/">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                新建用户ModelForm
+            </a>
+
+
+
         </div>
 
         <div class="panel panel-default">
@@ -28,7 +37,6 @@
                 <th>余额</th>
                 <th>入职时间</th>
                 <th>性别</th>
-                <th>性别</th>
                 <th>所属部门</th>
                 <th>操作</th>
                 </thead>
@@ -41,13 +49,12 @@
                         <td>{{ obj.password }}</td>
                         <td>{{ obj.age }}</td>
                         <td>{{ obj.account }}</td>
-                        <td>{{ obj.create_time }}</td>
-                        <td>{{ obj.gender }}</td>
-                        <td>{{ obj.gender }}</td>
-                        <td>{{ obj.depart_id }}</td>
+                        <td>{{ obj.create_time|date:'y-m-d h:m:s' }}</td>
+                        <td>{{ obj.get_gender_display }}</td>
+                        <td>{{ obj.depart.title}}</td>
                         <td>
-                            <a class="btn btn-primary btn-xs" href="#">编辑</a>
-                            <a class="btn btn-danger btn-xs" href="#">删除</a>
+                            <a class="btn btn-primary btn-xs" href="/app01/user/{{ obj.id }}/edit/">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="/app01/user/{{ obj.id }}/delete/">删除</a>
                         </td>
                     </tr>
                 {% endfor %}
